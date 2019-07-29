@@ -1,0 +1,33 @@
+<?php
+/**
+ * Configuration class dependant on template
+ * Note 1: This is a root class and do not depend on any other plugin classes
+
+ * @package Deals
+ * @author KestutisIT
+ * @copyright KestutisIT
+ * @license MIT License. See Legal/License.txt for details.
+ */
+namespace Deals\Models\Style;
+use Deals\Models\Configuration\ConfigurationInterface;
+use Deals\Models\Language\LanguageInterface;
+
+interface StyleInterface
+{
+    // Constructor
+    public function __construct(ConfigurationInterface &$paramConf, LanguageInterface &$paramLang, $paramSystemStyle);
+
+    // Setters
+    public function setSitewideStyles();
+    public function setCompatibilityStyles();
+    public function setLocalStyles();
+
+    // Debug
+    public function inDebug();
+
+    // Getters
+    public function getParentThemeCompatibilityCSSURL();
+    public function getCurrentThemeCompatibilityCSSURL();
+    public function getSitewideCSSURL();
+    public function getLocalCSSURL();
+}
