@@ -1,5 +1,5 @@
 === Deals ===
-Contributors: KestutisIT
+Contributors: KestutisIT, mariusslo
 Donate link: https://profiles.wordpress.org/KestutisIT
 Website link: https://wordpress.org/plugins/deals/
 Tags: slider, offers, deals, deal, offer

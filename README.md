@@ -1,7 +1,7 @@
 # ExpandableFAQ
 It’s a MIT-licensed (can be used in premium themes), high quality, native and responsive WordPress plugin to create and view slider-based deals
 
-**Contributors:** KestutisIT
+**Contributors:** KestutisIT, mariusslo
 
 **Website link:** https://wordpress.org/plugins/deals/
 
