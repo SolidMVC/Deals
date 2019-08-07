@@ -101,12 +101,12 @@ to your website's deal page and show only desired deal by following this URL str
 ![1. Deals - Front-End Deals Slider](https://ps.w.org/deals/assets/screenshot-1.jpg)
 ![2. Deals - Front-End Deal Hover with Description](https://ps.w.org/deals/assets/screenshot-2.jpg)
 ![3. Deals - Responsive View of Deals Slider](https://ps.w.org/deals/assets/screenshot-3.jpg)
-![4. Expandable FAQ - Admin FAQ Manager](https://ps.w.org/deals/assets/screenshot-4.jpg)
-![5. Expandable FAQ - Admin Global Settings](https://ps.w.org/deals/assets/screenshot-5.jpg)
-![6. Expandable FAQ - Admin Import Demo](https://ps.w.org/deals/assets/screenshot-6.jpg)
-![7. Expandable FAQ - Admin Plugin Updating](https://ps.w.org/deals/assets/screenshot-7.jpg)
-![8. Expandable FAQ - Admin Plugin Status](https://ps.w.org/deals/assets/screenshot-8.jpg)
-![9. Expandable FAQ - Admin User Manual](https://ps.w.org/deals/assets/screenshot-9.jpg)
+![4. Deals - Admin Deal Manager](https://ps.w.org/deals/assets/screenshot-4.jpg)
+![5. Deals - Admin Global Settings](https://ps.w.org/deals/assets/screenshot-5.jpg)
+![6. Deals - Admin Import Demo](https://ps.w.org/deals/assets/screenshot-6.jpg)
+![7. Deals - Admin Plugin Updating](https://ps.w.org/deals/assets/screenshot-7.jpg)
+![8. Deals - Admin Plugin Status](https://ps.w.org/deals/assets/screenshot-8.jpg)
+![9. Deals - Admin User Manual](https://ps.w.org/deals/assets/screenshot-9.jpg)
 
 
 # Changelog
