@@ -21,7 +21,7 @@ wp_enqueue_style('deals-admin');
 <tr>
     <td width="95px"><strong><?=esc_html($lang['LANG_DEAL_TITLE_TEXT']);?>:</strong></td>
     <td colspan="2">
-        <input type="text" name="deal_title" maxlength="15" value="<?=esc_attr($dealTitle);?>" class="required deal-question" style="width:350px;" title="<?=esc_attr($lang['LANG_DEAL_TITLE_TEXT']);?>" />
+        <input type="text" name="deal_title" maxlength="15" value="<?=esc_attr($dealTitle);?>" class="required deal-title" style="width:350px;" title="<?=esc_attr($lang['LANG_DEAL_TITLE_TEXT']);?>" />
     </td>
 </tr>
 <tr>

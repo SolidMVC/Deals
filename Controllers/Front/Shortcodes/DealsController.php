@@ -25,7 +25,7 @@ final class DealsController extends AbstractController
      * @return string
      * @throws \Exception
      */
-    public function getContent($paramLayout = "List", $paramStyle = "")
+    public function getContent($paramLayout = "Slider", $paramStyle = "")
     {
         // Create mandatory instances
         $objDealsObserver = new DealsObserver($this->conf, $this->lang, $this->dbSets->getAll());
@@ -47,7 +47,7 @@ final class DealsController extends AbstractController
             } else if((($i+2) % 3 == 0) && ($i == $totalDeals))
             {
                 // If this is the last slide and it is only 1 deal on it - pre-select it.
-                $dealDetails['selected'] = FALSE;
+                $dealDetails['selected'] = TRUE;
             } else
             {
                 $dealDetails['selected'] = FALSE;
@@ -64,6 +64,7 @@ final class DealsController extends AbstractController
         // Get the template
         $this->view->dealSlides = $dealSlides;
         $this->view->deals = $deals;
+        $this->view->dealsOnLastSlide = sizeof(end($dealSlides));
         $retContent = $this->getTemplate('', 'Deals', $paramLayout, $paramStyle);
 
         return $retContent;

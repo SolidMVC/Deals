@@ -5,7 +5,7 @@
  * @package     Deals
  * @author      Kestutis Matuliauskas
  * @copyright   Kestutis Matuliauskas
- * @License     @license See Legal/License.txt for details.
+ * @license     MIT License. See Legal/License.txt for details.
  */
 defined( 'ABSPATH' ) or die( 'No script kiddies, please!' );
 

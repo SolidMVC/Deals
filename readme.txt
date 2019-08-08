@@ -106,6 +106,29 @@ to your website's deal page and show only desired deal by following this URL str
 
 == Changelog ==
 
+= 6.1.8 =
+* Fixed minor bug with demoDealImageURL.
+* Gallery folder routing improved.
+* Added CSS improvements.
+* Description is now shown when hovering on deal‘s thumbnail.
+* Added URL button to description when in tablet/mobile view.
+* Improved JavaScript selectors.
+* Fixed bug when slide only has one deal and is not pre-selected.
+* Added white background when no image is on deal.
+* Fixed bug when hover effect only happens on title of deal.
+* Fixed positioning when JavaScript is not available.
+* Fixed overflowing issues.
+* Improved language file.
+* Deal title required PHP check added.
+* Minor HTML improvements.
+* Previous slide arrow is now visible on white background on last slide with 1 deal.
+* Added segregated core and plugin language files.
+* Global plugin lang path issue fixed.
+* Improved language.
+* License line text patched.
+* Duplicating demo UID check added to demos observer.
+* CSS class naming improved.
+
 = 6.1.7 =
 * Initial public release! Based on S.O.L.I.D. MVC Engine, Version 6 (without extensions).
 

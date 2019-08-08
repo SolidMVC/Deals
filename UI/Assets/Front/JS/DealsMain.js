@@ -32,10 +32,15 @@ var DealsMain = {
         return rawData.replace(/[^-_0-9a-z]/g, '');
     },
 
-    changeThumbnailAndDescription: function(thumbContainer, dealsNamesContainer, dealName, dealThumb, descriptionsContainer, description)
+    changeThumbnailAndDescription: function(thumbContainer, dealsNamesContainer, dealName, dealThumb, description)
     {
+
+        var objDescription = jQuery('.' + description);
         this.changeSlideThumb(thumbContainer, dealsNamesContainer, dealName, dealThumb);
-        this.showDescription(descriptionsContainer, description);
+
+        if(objDescription.length > 0){
+            this.showDescription(description);
+        }
     },
 
     changeSlideThumb: function (thumbContainer, dealsNamesContainer, dealName, dealThumb)
@@ -54,39 +59,36 @@ var DealsMain = {
         objDealName.addClass('selected');
     },
 
-    leftAlignAllStripes: function (dealsContainers)
+    leftAlignAllStripes: function (sliderContainer)
     {
-        var arrDealsContainers = dealsContainers;
 
         // Timeout required for the browser to have time to adjust
-        setTimeout(function()
-        {
-            arrDealsContainers.forEach(function(dealContainer)
-                {
-                    var objDealStripes = jQuery('.' + dealContainer + ' .deals-stripe');
-                    var offsetLeft = -Math.round(document.querySelector('.' + dealContainer + ' .single-deal').offsetLeft);
+        setTimeout(function() {
 
-                    objDealStripes.css({
-                            left : offsetLeft
-                        }
-                    )
+            var objDealStripes = jQuery('.' + sliderContainer + ' .deals-stripe');
+            var offsetLeft = -Math.round(document.querySelector('.' + sliderContainer + ' .single-deal').offsetLeft);
+
+            objDealStripes.css({
+                    left : offsetLeft
                 }
-            )
+            );
+
         },150);
     },
 
-    showDescription: function(descriptionsContainer, description)
+    showDescription: function(description)
     {
-        var objDescriptionsContainer = jQuery('.' + descriptionsContainer + ' .deal-description');
+        var objDescriptionsContainer = jQuery('.deal-description');
         var objDescription = jQuery('.' + description);
 
         objDescriptionsContainer.removeClass('is-current');
-        objDescription.addClass('is-current')
+        objDescription.addClass('is-current');
     },
 
     hideDescriptions: function(descriptionsContainer)
     {
         var objDescriptions = jQuery('.' + descriptionsContainer + ' .deal-description');
         objDescriptions.removeClass('is-current');
-    }
+    },
+
 };

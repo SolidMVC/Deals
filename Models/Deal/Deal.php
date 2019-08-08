@@ -101,9 +101,18 @@ final class Deal extends AbstractStack implements StackInterface, ElementInterfa
             $ret['translated_short_deal_title'] = StaticFormatter::getTruncated($ret['translated_deal_title'], $this->shortTitleMaxLength);
             $ret['translated_deal_description'] = $this->lang->getTranslated("de{$ret['deal_id']}_deal_description", $ret['deal_description']);
 
+            // Note: providing exact file name is important here, because then the system will correctly decide
+            //       from which exact folder to load that file, as not all demo images may be overridden by the theme
+            if($ret['demo_deal_image'] == 1)
+            {
+                $imageFolder = $this->conf->getRouting()->getDemoGalleryURL($ret['deal_image'], FALSE);
+            } else
+            {
+                $imageFolder = $this->conf->getGlobalGalleryURL();
+            }
+
             // Extend with additional rows
             $ret['short_deal_title'] = StaticFormatter::getTruncated($ret['deal_title'], $this->shortTitleMaxLength);
-            $imageFolder = $ret['demo_deal_image'] == 1 ? $this->conf->getRouting()->getDemoGalleryURL('', FALSE) : $this->conf->getGlobalGalleryURL();
             $ret['deal_thumb_url'] = $ret['deal_image'] != "" ? $imageFolder."thumb_".$ret['deal_image'] : "";
             $ret['deal_image_url'] = $ret['deal_image'] != "" ? $imageFolder.$ret['deal_image'] : "";
 
@@ -145,7 +154,14 @@ final class Deal extends AbstractStack implements StackInterface, ElementInterfa
             $validDealOrder = !is_null($maxOrderResult) ? intval($maxOrderResult)+1 : 1;
         }
 
-        // Search for existing deal
+        if($validDealTitle == "")
+        {
+            // Deal title is required
+            $ok = FALSE;
+            $this->errorMessages[] = $this->lang->getText('LANG_DEAL_TITLE_REQUIRED_ERROR_TEXT');
+        }
+
+        // Search for existing deal title
         $dealTitleExistsQuery = "
             SELECT deal_id
             FROM {$this->conf->getPrefix()}deals

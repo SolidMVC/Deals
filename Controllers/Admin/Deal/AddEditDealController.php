@@ -83,7 +83,7 @@ final class AddEditDealController extends AbstractController
             $this->view->dealId = 0;
             $this->view->dealTitle = '';
             $this->view->dealImageURL = '';
-            $this->view->demoDealImageURL = 0;
+            $this->view->demoDealImage = 0;
             $this->view->targetURL = '';
             $this->view->dealDescription = '';
             $this->view->dealEnabled = TRUE; // Default is TRUE

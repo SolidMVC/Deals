@@ -25,8 +25,14 @@ wp_enqueue_style('deals-main');
                     <div class="deals-slide flex-container deals-slide-<?=esc_attr($slideId);?>">
 
 <div class="slider-image-container slide<?=esc_attr($slideId);?>-deal-images">
-    <?php foreach($deals as $deal): ?>
-        <div class="deal-thumbnail-container deal<?=esc_attr($deal['deal_id']);?>-thumbnail-container<?=($deal['selected'] ? ' is-current' : '');?>">
+<?php foreach($deals as $deal): ?>
+        <div class="deal-thumbnail-container deal<?=esc_attr($deal['deal_id']);?>-thumbnail-container<?=($deal['selected'] ? ' is-current' : '');?>
+<?=($deal['deal_thumb_url'] == "" ? ' no-image' : '');?>"
+            <?php if($deal['translated_deal_description'] != ""): ?>
+                 onmouseover="javascript:DealsMain.showDescription('deal-description-<?=esc_attr($deal['deal_id']);?>');"
+                 onmouseleave="javascript:DealsMain.hideDescriptions('deals-slide-<?=esc_attr($slideId);?>');"
+            <?php endif; ?>
+            >
             <?php if($deal['deal_thumb_url'] != ""): ?>
                 <?php if($deal['target_url'] != ""): ?>
                     <a href="<?=esc_attr($deal['target_url']);?>" target="_blank">
@@ -40,8 +46,11 @@ wp_enqueue_style('deals-main');
                 <?php endif; ?>
             <?php endif; ?>
             <?php if($deal['translated_deal_description'] != ""): ?>
-                <div class="deal-description deal-description-<?=esc_attr($deal['deal_id']);?>">
+                <div class="deal-description deal-description-<?=esc_attr($deal['deal_id']);?> flex-container">
                     <?=esc_br_html($deal['translated_deal_description']);?>
+                    <?php if($deal['target_url'] != ""): ?>
+                        <a href="<?=esc_attr($deal['target_url']);?>" class="deal-link"> <?=esc_br_html($lang['LANG_DEAL_VIEW_TEXT']);?></a>
+                    <?php endif; ?>
                 </div>
             <?php endif; ?>
         </div>
@@ -52,8 +61,7 @@ wp_enqueue_style('deals-main');
         <div class="single-deal deal<?=esc_attr($deal['deal_id']);?>-name<?=($deal['selected'] ? ' selected' : '');?> flex-container"
              onmouseover="javascript:DealsMain.changeThumbnailAndDescription(
                      'slide<?=esc_attr($slideId);?>-deal-images', 'slide<?=esc_attr($slideId);?>-deal-names',
-                     'deal<?=esc_attr($deal['deal_id']);?>-name', 'deal<?=esc_attr($deal['deal_id']);?>-thumbnail-container',
-                     'deals-slide-<?=esc_attr($slideId);?>', 'deal-description-<?=esc_attr($deal['deal_id']);?>'
+                     'deal<?=esc_attr($deal['deal_id']);?>-name', 'deal<?=esc_attr($deal['deal_id']);?>-thumbnail-container', 'deal-description-<?=esc_attr($deal['deal_id']);?>'
                      );"
              onmouseleave="javascript:DealsMain.hideDescriptions('deals-slide-<?=esc_attr($slideId);?>');"
         >
@@ -74,12 +82,13 @@ wp_enqueue_style('deals-main');
                 </div>
             <?php endforeach; ?>
         </div>
-    <?php else:?>
+    <?php else: ?>
         <div class="no-deals-available"><?=esc_html($lang['LANG_DEALS_NONE_AVAILABLE_TEXT']);?></div>
     <?php endif; ?>
 </div>
 <script type="text/javascript">
 jQuery(document).ready(function() {
+
     jQuery('.responsive-deals-slider').slick({
         dots: false,
         infinite: false,
@@ -92,31 +101,33 @@ jQuery(document).ready(function() {
             {
                 breakpoint: 584,
                 settings: {
-                    arrows: false
-                }
-            },
-
-            {
-                breakpoint: 420,
-                settings: {
                     arrows: false,
                     dots: true
                 }
-            }
+            },
             // You can unslick at a given breakpoint now by adding:
             // settings: "unslick"
             // instead of a settings object
         ]
     });
 
-    var arrSlideSelectors = [];
-    <?php foreach ($dealSlides AS $slideId => $deals): ?>
-    arrSlideSelectors.push('deals-slide-<?=esc_js($slideId);?>');
-    <?php endforeach;?>
-    DealsMain.leftAlignAllStripes(arrSlideSelectors);
+    DealsMain.leftAlignAllStripes('responsive-deals-slider');
 
     jQuery(window).resize(function(){
-        DealsMain.leftAlignAllStripes(arrSlideSelectors);
+        DealsMain.leftAlignAllStripes('responsive-deals-slider');
     });
+
+    // This part is needed for when last slide has 1 deal and the previous slide button is not seen on a white background
+
+    var responsiveDealsSliderLenght = <?=esc_js(sizeof($dealSlides)-1);?>;
+    var objPrevButton = jQuery('.responsive-deals-slider .deals-slider-prev');
+    var dealsOnLastSlide = <?=esc_js($dealsOnLastSlide);?>;
+
+    if(dealsOnLastSlide < 2)
+    {
+        jQuery('.responsive-deals-slider').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+            (nextSlide == responsiveDealsSliderLenght) ? objPrevButton.addClass('has-1deal') : objPrevButton.removeClass('has-1deal');
+        });
+    }
 });
 </script>
