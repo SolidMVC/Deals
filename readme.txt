@@ -52,7 +52,7 @@ Finally - the code is poetry - __the better is the web, the happier is the world
 
 - - - -
 == Live Demo ==
-[Deals (Live Demo)](http://nativerental.com/cars/ "Deals (Live Demo)")
+[Deals (Live Demo)](https://nativerental.com/cars/ "Deals (Live Demo)")
 
 == GitHub Repository (for those, who want to contribute via "Pull Requests") ==
 [https://github.com/SolidMVC/Deals](https://github.com/SolidMVC/Deals "Deals @GitHub")
@@ -105,6 +105,13 @@ to your website's deal page and show only desired deal by following this URL str
 
 
 == Changelog ==
+
+= 6.1.9 =
+* Fixed compatibility style routing bug
+* Refactored time(UTC)
+* HTTP changed to HTTPS
+* Refactored CSSFile to CSS_File
+* Improved CSS
 
 = 6.1.8 =
 * Fixed minor bug with demoDealImageURL.

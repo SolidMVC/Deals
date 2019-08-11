@@ -22,7 +22,8 @@ wp_enqueue_style('deals-main');
         <div class="responsive-deals-slider">
             <?php foreach($dealSlides as $slideId => $deals): ?>
                 <div class="slide-container">
-                    <div class="deals-slide flex-container deals-slide-<?=esc_attr($slideId);?>">
+                    <div class="deals-slide deals-slide-<?=esc_attr($slideId);?>">
+                        <div class="slides-wrapper flex-container">
 
 <div class="slider-image-container slide<?=esc_attr($slideId);?>-deal-images">
 <?php foreach($deals as $deal): ?>
@@ -78,6 +79,7 @@ wp_enqueue_style('deals-main');
     <?php endforeach; ?>
 </div>
 
+                        </div>
                     </div>
                 </div>
             <?php endforeach; ?>

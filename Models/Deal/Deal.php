@@ -207,7 +207,7 @@ final class Deal extends AbstractStack implements StackInterface, ElementInterfa
                 $validUploadedImageFileName = '';
                 if($_FILES['deal_image']['tmp_name'] != '')
                 {
-                    $uploadedImageFileName = StaticFile::uploadImageFile($_FILES['deal_image'], $this->conf->getGlobalGalleryPathWithoutEndSlash(), "location_");
+                    $uploadedImageFileName = StaticFile::uploadImageFile($_FILES['deal_image'], $this->conf->getGlobalGalleryPathWithoutEndSlash(), "deal_");
                     StaticFile::makeThumbnail($this->conf->getGlobalGalleryPath(), $uploadedImageFileName, $this->thumbWidth, $this->thumbHeight, "thumb_");
                     $validUploadedImageFileName = esc_sql(sanitize_file_name($uploadedImageFileName)); // for sql query only
                 }
@@ -258,7 +258,7 @@ final class Deal extends AbstractStack implements StackInterface, ElementInterfa
                 $validUploadedImageFileName = '';
                 if($_FILES['deal_image']['tmp_name'] != '')
                 {
-                    $uploadedImageFileName = StaticFile::uploadImageFile($_FILES['deal_image'], $this->conf->getGlobalGalleryPathWithoutEndSlash(), "location_");
+                    $uploadedImageFileName = StaticFile::uploadImageFile($_FILES['deal_image'], $this->conf->getGlobalGalleryPathWithoutEndSlash(), "deal_");
                     StaticFile::makeThumbnail($this->conf->getGlobalGalleryPath(), $uploadedImageFileName, $this->thumbWidth, $this->thumbHeight, "thumb_");
                     $validUploadedImageFileName = esc_sql(sanitize_file_name($uploadedImageFileName)); // for sql query only
                 }

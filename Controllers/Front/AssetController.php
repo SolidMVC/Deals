@@ -81,9 +81,9 @@ final class AssetController
         $objStyle->setSitewideStyles();
         // Set compatibility styles
         $objStyle->setCompatibilityStyles();
-        $parentThemeCompatibilityCSSFileURL = $objStyle->getParentThemeCompatibilityCSSURL();
-        $currentThemeCompatibilityCSSFileURL = $objStyle->getCurrentThemeCompatibilityCSSURL();
-        $sitewideCSSFileURL = $objStyle->getSitewideCSSURL();
+        $parentThemeCompatibilityCSS_FileURL = $objStyle->getParentThemeCompatibilityCSS_URL();
+        $currentThemeCompatibilityCSS_FileURL = $objStyle->getCurrentThemeCompatibilityCSS_URL();
+        $sitewideCSS_FileURL = $objStyle->getSitewideCSS_URL();
 
         if($this->lang->isRTL())
         {
@@ -94,19 +94,19 @@ final class AssetController
         }
 
         // Register compatibility styles for further use
-        if($parentThemeCompatibilityCSSFileURL != '')
+        if($parentThemeCompatibilityCSS_FileURL != '')
         {
-            wp_register_style($this->conf->getPluginURL_Prefix().'parent-theme-front-compatibility', $parentThemeCompatibilityCSSFileURL);
+            wp_register_style($this->conf->getPluginURL_Prefix().'parent-theme-front-compatibility', $parentThemeCompatibilityCSS_FileURL);
         }
-        if($currentThemeCompatibilityCSSFileURL != '')
+        if($currentThemeCompatibilityCSS_FileURL != '')
         {
-            wp_register_style($this->conf->getPluginURL_Prefix().'current-theme-front-compatibility', $currentThemeCompatibilityCSSFileURL);
+            wp_register_style($this->conf->getPluginURL_Prefix().'current-theme-front-compatibility', $currentThemeCompatibilityCSS_FileURL);
         }
 
         // Register plugin sitewide style for further use
-        if($sitewideCSSFileURL != '')
+        if($sitewideCSS_FileURL != '')
         {
-            wp_register_style($this->conf->getPluginURL_Prefix().'front-sitewide', $sitewideCSSFileURL);
+            wp_register_style($this->conf->getPluginURL_Prefix().'front-sitewide', $sitewideCSS_FileURL);
         }
 
         // As these styles are mandatory, enqueue them here
@@ -154,10 +154,10 @@ final class AssetController
         wp_register_style('slick-theme', $this->conf->getRouting()->get3rdPartyAssetsURL('slick/slick-theme.css'));
 
         // Register plugin local style for further use
-        $localCSSFileURL = $objStyle->getLocalCSSURL();
-        if($localCSSFileURL != '')
+        $localCSS_FileURL = $objStyle->getLocalCSS_URL();
+        if($localCSS_FileURL != '')
         {
-            wp_register_style($this->conf->getPluginHandlePrefix().'main', $localCSSFileURL);
+            wp_register_style($this->conf->getPluginHandlePrefix().'main', $localCSS_FileURL);
         }
 	}
 }
