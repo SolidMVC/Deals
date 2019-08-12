@@ -106,6 +106,9 @@ to your website's deal page and show only desired deal by following this URL str
 
 == Changelog ==
 
+= 6.1.10 =
+* Semver alignment with other SolidMVC models.
+
 = 6.1.9 =
 * Fixed compatibility style routing bug
 * Refactored time(UTC)
