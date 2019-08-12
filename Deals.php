@@ -3,7 +3,7 @@
  * Plugin Name: Deals
  * Plugin URI: https://wordpress.org/plugins/deals/
  * Description: It’s a high quality, native and responsive WordPress plugin to create and view slider-based deals
- * Version: 6.1.10
+ * Version: 6.1.10-1
  * Author: KestutisIT
  * Author URI: https://profiles.wordpress.org/KestutisIT
  * Text Domain: deals

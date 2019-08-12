@@ -7,7 +7,7 @@
  * @license     MIT License. See Legal/License.txt for details.
  *
  * @deals-plugin-demo
- * Demo UID: 1
+ * Demo UID: 3
  * Demo Name: Car Rental Agency - Steel Blue
  * Demo Enabled: 1
  */
