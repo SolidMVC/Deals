@@ -59,7 +59,7 @@ Finally - the code is poetry - __the better is the web, the happier is the world
 
 - - - -
 # Live Demo
-[Expandable FAQ (Live Demo)](http://nativerental.com/cars/ "Deals (Live Demo)")
+[Expandable FAQ (Live Demo)](https://nativerental.com/cars/ "Deals (Live Demo)")
 
 
 # Installation
